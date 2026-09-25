@@ -118,7 +118,7 @@ pub(crate) struct Host {
 	/// this host; see [`Sigpipe`].
 	sigpipe:               Arc<Sigpipe>,
 	/// Resource placement inherited by external children, never this builtin's thread.
-	spawn_placement: Option<Arc<dyn SpawnPlacement>>,
+	spawn_placement:        Option<Arc<dyn SpawnPlacement>>,
 }
 
 fn output_handle(file: &OpenFile) -> Option<same_file::Handle> {
@@ -753,7 +753,7 @@ pub(crate) struct ChildEnv {
 	cwd:    PathBuf,
 	env:    Arc<Vec<(String, String)>>,
 	stderr: OpenFile,
-	spawn_placement: Option<Arc<dyn SpawnPlacement>>,
+	spawn_placement:        Option<Arc<dyn SpawnPlacement>>,
 }
 
 impl ChildEnv {
